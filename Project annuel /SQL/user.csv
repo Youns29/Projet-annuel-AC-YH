@@ -1,0 +1,5 @@
+"id","email","roles","password","lastname","firstname","profilepicture"
+1,"john@go.com","[""ROLE_USER""]","$2y$13$QgAW.WqFhOxCMfJiUTECbOTyAcXSCEeekd20TDU/j1dWEVH7tdgBy","Doe","John","https://picsum.photos/200"
+3,"toto@go.com","[""ROLE_USER"", ""ROLE_ADMIN""]","$2y$13$BhqvXCrO6OKT31PyHOhIn.ztkIcidyu/pnCnxHCg5mS0p8oGWO4py","TOTO","LADMIN",NULL
+4,"test@test.com","[]","$2y$13$Ai4.Ye/r9fGs4XJn06b1oOhWHilEbP5TqptgL5AQetod.OhwtoBfa",NULL,NULL,NULL
+5,"coco@gmail.com","[]","$2y$13$pg6yoIVRPCmY2aY7ETFGweSMwDtLZQfK4EU5wPSI0KF7LhhMrlSfC",NULL,NULL,NULL

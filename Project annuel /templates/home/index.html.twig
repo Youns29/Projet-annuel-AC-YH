@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Facture index
+{% endblock %}
+
+{% block body %}
+  {% if app.user %}
+    <a class="action_button" href="{{ path('app_Facture_new') }}">
+      Créer un nouvel Facture
+    </a>
+  {% endif %}
+
+  {% for Facture in Factures %}
+    <section class="b">
+      <h5 id="Facture.title" class="card-title">
+        {{ Facture.title }}
+      </h5>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <p id="Facture.content" class="card-text">
+            {{ Facture.descripton }}
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>#{% if Facture.author %}
+        #<p class="Facture_author">
+          #Auteur: #{{ Facture.author.name }}
+          #{{ Facture.author.firstname }}
+          #
+        </p>
+      {% endif %}
+      <div class="action_button_container">
+        <a class="action_button"
+          href="{{
+          path(
+            'app_Facture_show',
+            {
+              id: Facture.id
+            }
+          )
+          }}">
+          Voir
+        </a>
+      </div>
+    </section>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Facture index
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Facture index
+  </h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          actions
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for Facture in Factures %}
+        <tr>
+          <td>
+            {{ Facture.title }}
+          </td>
+          <td>
+            {{ Facture.content }}
+          </td>
+          <td>
+            <a href="{{
+              path(
+                'app_Facture_show',
+                {
+                  id: Facture.id
+                }
+              )
+              }}">
+              show
+            </a>
+            <a href="{{
+              path(
+                'app_Facture_edit',
+                {
+                  id: Facture.id
+                }
+              )
+              }}">
+              edit
+            </a>
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="4">
+            no records found
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <a href="{{ path('app_Facture_new') }}">Create new</a>
+{% endblock %}

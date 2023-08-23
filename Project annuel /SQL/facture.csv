@@ -1,0 +1,5 @@
+"id","title","author_id","created_at","updated_at","content","image"
+1,"wd",1,"2022-12-04 21:14:56",NULL,NULL,NULL
+5,"Nouvelle chaussure",3,"2022-12-04 23:03:03",NULL,"que des grandes tailles",NULL
+6,"Chaussette",3,"2022-12-04 23:04:07",NULL,"Qui tient chaud",NULL
+7,"TITRE DU JOURS",3,"2022-12-04 23:04:24",NULL,"CONTENU",NULL

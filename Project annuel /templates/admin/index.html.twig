@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+  Hello AdminController!
+{% endblock %}
+
+{% block body %}
+  <div class="content_container">
+    <div>
+      {% for Facture in Factures %}
+        <section>
+          <h2>
+            {{ Facture.title }}
+          </h2>
+          <p>
+            {{ Facture.content }}
+          </p>
+          {% if Facture.author %}
+            <p class="Facture_author">
+              Auteur: {{ Facture.author.lastname }} {{ Facture.author.firstname }}
+            </p>
+          {% endif %}
+        </section>
+      {% endfor %}
+    </div>
+    <div>
+      {% for product in products %}
+        <section>
+          <h2>
+            {{ product.title }}
+          </h2>
+          <p>
+            {{ product.description }}
+          </p>
+          <p>
+            Prix: {{ product.price }} €
+          </p>
+          <p>
+            Catégorie: {{ product.category.name }}
+          </p>
+          <p>
+            Vendeur : {{ product.seller.lastname }} {{ product.seller.firstname }}
+          </p>
+        </section>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
