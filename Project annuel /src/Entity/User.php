@@ -43,13 +43,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Facture::class)]
     private Collection $Factures;
 
-    #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Product::class)]
-    private Collection $products;
+    #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Fichier::class)]
+    private Collection $Fichiers;
 
     public function __construct()
     {
         $this->Factures = new ArrayCollection();
-        $this->products = new ArrayCollection();
+        $this->Fichiers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -189,29 +189,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Product>
+     * @return Collection<int, Fichier>
      */
-    public function getProducts(): Collection
+    public function getFichiers(): Collection
     {
-        return $this->products;
+        return $this->Fichiers;
     }
 
-    public function addProduct(Product $product): self
+    public function addFichier(Fichier $Fichier): self
     {
-        if (!$this->products->contains($product)) {
-            $this->products->add($product);
-            $product->setSeller($this);
+        if (!$this->Fichiers->contains($Fichier)) {
+            $this->Fichiers->add($Fichier);
+            $Fichier->setSeller($this);
         }
 
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function removeFichier(Fichier $Fichier): self
     {
-        if ($this->products->removeElement($product)) {
+        if ($this->Fichiers->removeElement($Fichier)) {
             // set the owning side to null (unless already changed)
-            if ($product->getSeller() === $this) {
-                $product->setSeller(null);
+            if ($Fichier->getSeller() === $this) {
+                $Fichier->setSeller(null);
             }
         }
 

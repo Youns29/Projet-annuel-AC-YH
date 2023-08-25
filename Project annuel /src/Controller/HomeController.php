@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use App\Entity\Category;
+use App\Entity\Author;
 
 
 #[Route('/')]
@@ -31,7 +31,7 @@ class HomeController extends AbstractController
         $Factures= $FactureRepository->find(1);
 
         $FactureTitle = $Factures->getTitle();
-#        dd($Factures);
+        // dd($Factures);
         return $this->render('home/index.html.twig', [
             'Factures' => $Factures,
             'FactureTitle' => $FactureTitle,

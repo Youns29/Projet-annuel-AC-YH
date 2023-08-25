@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Facture
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Facture
+  </h1>
+
+  <table class="table">
+    <tbody>
+       <section>
+          <h1>
+            {{ Facture.title }}
+          </h1>
+          <p>
+            {{ Facture.designation }}
+          </p>
+          <p>
+            invoice_date : {{ Facture.invoiceDate }}
+          </p>
+          <p>
+            totalInclTax : {{ Facture.totalInclTax }}
+          </p>
+          <p>
+            unitPriceExclTax : {{ Facture.unitPriceExclTax }}
+          </p>
+          <p>
+            quantity : {{ Facture.quantity }}
+          </p>
+          <p>
+            totalExclTax : {{ Facture.totalExclTax }}
+          </p>
+          <p>
+            taxAmount : {{ Facture.taxAmount }}
+          </p>
+    </tbody>
+  </table>
+
+  <a href="{{ path('app_Facture_index') }}">back to list</a>
+
+  <a href="{{
+    path(
+      'app_Facture_edit',
+      {
+        id: Facture.id
+      }
+    )
+    }}">
+    edit
+  </a>
+
+  {{ include('Facture/_delete_form.html.twig') }}
+{% endblock %}

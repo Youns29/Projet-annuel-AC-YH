@@ -71,8 +71,8 @@ Le projet est mini site e-commerce composé de :
 
 ## Entités 
 - Facture
-- Product (ajouter UN SEUL paramètre personnalisé tel qu'une couleur, une marque etc.)
-- Category
+- Fichier (ajouter UN SEUL paramètre personnalisé tel qu'une couleur, une marque etc.)
+- Author
 - User (Client/seller/Admin)
 - Cart
 Les Factures et produits doivent avoir une option de statut, publié ou brouillon. Ils doivent pas etre affiché hors partie admin si ils sont en brouillon. 

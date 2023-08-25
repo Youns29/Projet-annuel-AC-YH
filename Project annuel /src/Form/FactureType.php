@@ -14,9 +14,11 @@ class FactureType extends AbstractType
         FormBuilderInterface $builder,
         array $options
     ): void {
-        $builder->add('title')->add('content', TextType::class, [
-            'label' => "Contenu de l'Facture",
-        ]);
+        $builder->add('title')->add('designation', TextType::class, [
+            'label' => "designation",
+        ])->add('invoiceDate')->add('totalInclTax')->add(
+            'unitPriceExclTax'
+        )->add('quantity')->add('totalExclTax')->add('taxAmount');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Fichier index
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Liste des produits
+  </h1>
+  {% for Fichier in Fichiers %}
+    <section>
+      <h2>
+        {{ Fichier.title }}
+      </h2>
+      <p>
+        {{ Fichier.description }}
+      </p>
+      <p>
+        Prix: {{ Fichier.price }} €
+      </p>
+      <p>
+        Stock: {{ Fichier.quantity }}
+      </p>
+      <p>
+        Catégorie: {{ Fichier.Category.name }}
+      </p>
+      {#
+            <p>Vendeur : {{ Fichier.seller.firstname }}</p>
+#}
+
+      <a href="{{
+        path(
+          'app_Fichier_show',
+          {
+            id: Fichier.id
+          }
+        )
+        }}">
+        show
+      </a>
+      <a href="{{
+        path(
+          'app_Fichier_edit',
+          {
+            id: Fichier.id
+          }
+        )
+        }}">
+        edit
+      </a>
+    </section>
+  {% endfor %}
+  <a class="action_button" href="{{ path('app_Fichier_new') }}">Create new</a>
+{% endblock %}

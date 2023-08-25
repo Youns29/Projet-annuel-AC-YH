@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Edit Facture
+  Edit Fichier
 {% endblock %}
 
 {% block body %}
   <h1>
-    Edit Facture
+    Edit Fichier
   </h1>
 
   {{
     include(
-      'Facture/_form.html.twig',
+      'Fichier/_form.html.twig',
       {
         button_label: 'Update'
       }
     )
   }}
 
-  <a href="{{ path('app_Facture_index') }}">back to list</a>
+  <a href="{{ path('app_Fichier_index') }}">back to list</a>
 
-  {{ include('Facture/_delete_form.html.twig') }}
+  {{ include('Fichier/_delete_form.html.twig') }}
 {% endblock %}

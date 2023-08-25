@@ -23,8 +23,8 @@
       <nav>
         <a href="{{ path('app_home') }}">Home</a>
         <a href="{{ path('app_Facture_index') }}">Factures</a>
-        <a href="{{ path('app_product_index') }}">Product</a>
-        <a href="{{ path('app_category_index') }}">Category</a>
+        <a href="{{ path('app_Fichier_index') }}">Fichier</a>
+        <a href="{{ path('app_category_index') }}">Stockage</a>
 
         {% if app.user %}
           <a href="{{
@@ -47,6 +47,7 @@
       </nav>
     </header>
     {% block body %}
+
     {% endblock %}
   </body>
 </html>

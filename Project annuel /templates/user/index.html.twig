@@ -61,30 +61,30 @@
       <h2>
         Mes produits
       </h2>
-      {% for product in products %}
+      {% for Fichier in Fichiers %}
         <section>
           <h2>
-            {{ product.title }}
+            {{ Fichier.title }}
           </h2>
           <p>
-            {{ product.description }}
+            {{ Fichier.description }}
           </p>
           <p>
-            Price: {{ product.price }} €
+            Price: {{ Fichier.price }} €
           </p>
           <p>
-            Category: {{ product.category.name }}
+            Author: {{ Fichier.Author.name }}
           </p>
           <p>
-            seller : {{ product.seller.lastname }} {{ product.seller.firstname }}
+            seller : {{ Fichier.seller.lastname }} {{ Fichier.seller.firstname }}
           </p>
 
           <a class="action_button"
             href="{{
             path(
-              'app_product_show',
+              'app_Fichier_show',
               {
-                id: product.id
+                id: Fichier.id
               }
             )
             }}">
@@ -93,9 +93,9 @@
           <a class="action_button"
             href="{{
             path(
-              'app_product_edit',
+              'app_Fichier_edit',
               {
-                id: product.id
+                id: Fichier.id
               }
             )
             }}">

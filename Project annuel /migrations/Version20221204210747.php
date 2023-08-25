@@ -24,7 +24,7 @@ final class Version20221204210747 extends AbstractMigration
             'ALTER TABLE Facture ADD created_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', ADD update_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\''
         );
         $this->addSql(
-            'ALTER TABLE product ADD created_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', ADD update_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\''
+            'ALTER TABLE Fichier ADD created_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\', ADD update_at DATETIME DEFAULT NULL COMMENT \'(DC2Type:datetime_immutable)\''
         );
     }
 
@@ -32,6 +32,6 @@ final class Version20221204210747 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE Facture DROP created_at, DROP update_at');
-        $this->addSql('ALTER TABLE product DROP created_at, DROP update_at');
+        $this->addSql('ALTER TABLE Fichier DROP created_at, DROP update_at');
     }
 }

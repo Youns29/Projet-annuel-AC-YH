@@ -1,4 +1,4 @@
-"id","category_id","title","description","price","seller_id","quantity","created_at","update_at"
+"id","Author_id","title","description","price","seller_id","quantity","created_at","update_at"
 1,1,"Je suis un titre","Je suis une description",100,1,10,NULL,NULL
 2,2,"Je suis un deuxieme titre","Je suis un deuxieme description",1234,1,10,NULL,NULL
 3,1,"Chaussure","nouvelle sur le marché",9999,3,99,NULL,NULL

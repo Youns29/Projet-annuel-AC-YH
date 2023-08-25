@@ -23,22 +23,22 @@
       {% endfor %}
     </div>
     <div>
-      {% for product in products %}
+      {% for Fichier in Fichiers %}
         <section>
           <h2>
-            {{ product.title }}
+            {{ Fichier.title }}
           </h2>
           <p>
-            {{ product.description }}
+            {{ Fichier.description }}
           </p>
           <p>
-            Prix: {{ product.price }} €
+            Prix: {{ Fichier.price }} €
           </p>
           <p>
-            Catégorie: {{ product.category.name }}
+            Catégorie: {{ Fichier.Author.name }}
           </p>
           <p>
-            Vendeur : {{ product.seller.lastname }} {{ product.seller.firstname }}
+            Vendeur : {{ Fichier.seller.lastname }} {{ Fichier.seller.firstname }}
           </p>
         </section>
       {% endfor %}

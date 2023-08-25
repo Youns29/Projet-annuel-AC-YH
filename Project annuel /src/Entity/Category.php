@@ -18,12 +18,12 @@ class Category
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
-    private Collection $products;
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Fichier::class)]
+    private Collection $Fichiers;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->Fichiers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -44,29 +44,29 @@ class Category
     }
 
     /**
-     * @return Collection<int, Product>
+     * @return Collection<int, Fichier>
      */
-    public function getProducts(): Collection
+    public function getFichiers(): Collection
     {
-        return $this->products;
+        return $this->Fichiers;
     }
 
-    public function addProduct(Product $product): self
+    public function addFichier(Fichier $Fichier): self
     {
-        if (!$this->products->contains($product)) {
-            $this->products->add($product);
-            $product->setCategory($this);
+        if (!$this->Fichiers->contains($Fichier)) {
+            $this->Fichiers->add($Fichier);
+            $Fichier->setCategory($this);
         }
 
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function removeFichier(Fichier $Fichier): self
     {
-        if ($this->products->removeElement($product)) {
+        if ($this->Fichiers->removeElement($Fichier)) {
             // set the owning side to null (unless already changed)
-            if ($product->getCategory() === $this) {
-                $product->setCategory(null);
+            if ($Fichier->getCategory() === $this) {
+                $Fichier->setCategory(null);
             }
         }
 

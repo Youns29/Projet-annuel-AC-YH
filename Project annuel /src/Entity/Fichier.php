@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ProductRepository;
+use App\Repository\FichierRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ProductRepository::class)]
-class Product
+#[ORM\Entity(repositoryClass: FichierRepository::class)]
+class Fichier
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -23,10 +23,13 @@ class Product
     #[ORM\Column]
     private ?int $Price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\ManyToOne(inversedBy: 'Fichiers')]
     private ?category $category = null;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\ManyToOne(inversedBy: 'Fichiers')]
+    private ?User $author = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Fichiers')]
     private ?User $seller = null;
 
     #[ORM\Column]
@@ -91,6 +94,18 @@ class Product
         return $this;
     }
 
+    // public function getAuthor(): ?Author
+    // {
+    //     return $this->Author;
+    // }
+
+    // public function setAuthor(?Author $Author): self
+    // {
+    //     $this->Author = $Author;
+
+    //     return $this;
+    // }
+
     public function getSeller(): ?User
     {
         return $this->seller;
@@ -150,5 +165,4 @@ class Product
 
         return $this;
     }
-
 }

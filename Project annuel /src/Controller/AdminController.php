@@ -6,7 +6,7 @@ use App\Entity\User;
 use App\Form\FilterType;
 use App\Form\RegistrationFormType;
 use App\Repository\FactureRepository;
-use App\Repository\ProductRepository;
+use App\Repository\FichierRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,10 +22,10 @@ class AdminController extends AbstractController
     {
     }
     #[Route('', name: 'app_admin')]
-    public function index(Request $request,FactureRepository $FactureRepository, ProductRepository $productRepository): Response
+    public function index(Request $request,FactureRepository $FactureRepository, FichierRepository $FichierRepository): Response
     {
         $Factures = $FactureRepository->findByCreatedDate(10, 1);
-        $products = $productRepository->findByCreatedDate(10, 1, 1);
+        $Fichiers = $FichierRepository->findByCreatedDate(10, 1, 1);
 
         $form = $this->createForm(FilterType::class);
         $form->handleRequest($request);
@@ -39,7 +39,7 @@ class AdminController extends AbstractController
         }
         return $this->render('admin/index.html.twig', [
             'Factures' => $Factures,
-            'products' => $products,
+            'Fichiers' => $Fichiers,
             'form' => $form->createView()
         ]);
 

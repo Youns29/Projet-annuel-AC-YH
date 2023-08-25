@@ -6,33 +6,38 @@
 
 {% block body %}
   <h1>
-    Facture index
+    Facture 
   </h1>
 
   <table class="table">
-    <thead>
-      <tr>
-        <th>
-          Title
-        </th>
-        <th>
-          Description
-        </th>
-        <th>
-          actions
-        </th>
-      </tr>
-    </thead>
     <tbody>
       {% for Facture in Factures %}
-        <tr>
-          <td>
+        <section>
+          <h1>
             {{ Facture.title }}
-          </td>
-          <td>
-            {{ Facture.content }}
-          </td>
-          <td>
+          </h1>
+          <p>
+            {{ Facture.designation }}
+          </p>
+          <p>
+            invoice_date : {{ Facture.invoiceDate }}
+          </p>
+          <p>
+            totalInclTax : {{ Facture.totalInclTax }}
+          </p>
+          <p>
+            unitPriceExclTax : {{ Facture.unitPriceExclTax }}
+          </p>
+          <p>
+            quantity : {{ Facture.quantity }}
+          </p>
+          <p>
+            totalExclTax : {{ Facture.totalExclTax }}
+          </p>
+          <p>
+            taxAmount : {{ Facture.taxAmount }}
+          </p>
+          
             <a href="{{
               path(
                 'app_Facture_show',
@@ -53,13 +58,12 @@
               }}">
               edit
             </a>
-          </td>
-        </tr>
+        </section>
       {% else %}
         <tr>
-          <td colspan="4">
+          <p colspan="4">
             no records found
-          </td>
+          </p>
         </tr>
       {% endfor %}
     </tbody>

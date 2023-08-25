@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Facture
+  Fichier
 {% endblock %}
 
 {% block body %}
   <h1>
-    Facture
+    Fichier
   </h1>
 
   <table class="table">
@@ -16,7 +16,7 @@
           Id
         </th>
         <td>
-          {{ Facture.id }}
+          {{ Fichier.id }}
         </td>
       </tr>
       <tr>
@@ -24,7 +24,7 @@
           Title
         </th>
         <td>
-          {{ Facture.title }}
+          {{ Fichier.title }}
         </td>
       </tr>
       <tr>
@@ -32,24 +32,40 @@
           Description
         </th>
         <td>
-          {{ Facture.content }}
+          {{ Fichier.Description }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Price
+        </th>
+        <td>
+          {{ Fichier.Price }}
+        </td>
+      </tr>
+      <tr>
+        <th>
+          Quantity
+        </th>
+        <td>
+          {{ Fichier.quantity }}
         </td>
       </tr>
     </tbody>
   </table>
 
-  <a href="{{ path('app_Facture_index') }}">back to list</a>
+  <a href="{{ path('app_Fichier_index') }}">back to list</a>
 
   <a href="{{
     path(
-      'app_Facture_edit',
+      'app_Fichier_edit',
       {
-        id: Facture.id
+        id: Fichier.id
       }
     )
     }}">
     edit
   </a>
 
-  {{ include('Facture/_delete_form.html.twig') }}
+  {{ include('Fichier/_delete_form.html.twig') }}
 {% endblock %}

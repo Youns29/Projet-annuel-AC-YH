@@ -23,7 +23,7 @@ class UserController extends AbstractController
         if ($user->getId() == $this->getUser()->getId()) {
             $profile = $user;
             $userFactures = $user->getFactures()->toArray();
-            $userProducts = $user->getProducts()->toArray();
+            $userFichiers = $user->getFichiers()->toArray();
 
             $form = $this->createForm(UserType::class, $user);
             $form->handleRequest($request);
@@ -46,7 +46,7 @@ class UserController extends AbstractController
             return $this->render('user/index.html.twig', [
                 'user' => $profile,
                 'Factures' => $userFactures,
-                'products' => $userProducts,
+                'Fichiers' => $userFichiers,
                 'form' => $form->createView()
             ]);
 

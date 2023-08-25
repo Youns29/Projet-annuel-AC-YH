@@ -64,26 +64,26 @@ CREATE TABLE `cart` (
 
 
 
-# Dump of table category
+# Dump of table Author
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `Author`;
 
-CREATE TABLE `category` (
+CREATE TABLE `Author` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `category` WRITE;
-/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+LOCK TABLES `Author` WRITE;
+/*!40000 ALTER TABLE `Author` DISABLE KEYS */;
 
-INSERT INTO `category` (`id`, `name`)
+INSERT INTO `Author` (`id`, `name`)
 VALUES
 	(1,'Adidas'),
 	(2,'Nikee');
 
-/*!40000 ALTER TABLE `category` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Author` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -122,14 +122,14 @@ CREATE TABLE `messenger_messages` (
 
 
 
-# Dump of table product
+# Dump of table Fichier
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `product`;
+DROP TABLE IF EXISTS `Fichier`;
 
-CREATE TABLE `product` (
+CREATE TABLE `Fichier` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `category_id` int DEFAULT NULL,
+  `Author_id` int DEFAULT NULL,
   `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int NOT NULL,
@@ -138,16 +138,16 @@ CREATE TABLE `product` (
   `created_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
   `update_at` datetime DEFAULT NULL COMMENT '(DC2Type:datetime_immutable)',
   PRIMARY KEY (`id`),
-  KEY `IDX_D34A04AD12469DE2` (`category_id`),
+  KEY `IDX_D34A04AD12469DE2` (`Author_id`),
   KEY `IDX_D34A04AD8DE820D9` (`seller_id`),
-  CONSTRAINT `FK_D34A04AD12469DE2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  CONSTRAINT `FK_D34A04AD12469DE2` FOREIGN KEY (`Author_id`) REFERENCES `Author` (`id`),
   CONSTRAINT `FK_D34A04AD8DE820D9` FOREIGN KEY (`seller_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-LOCK TABLES `product` WRITE;
-/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+LOCK TABLES `Fichier` WRITE;
+/*!40000 ALTER TABLE `Fichier` DISABLE KEYS */;
 
-INSERT INTO `product` (`id`, `category_id`, `title`, `description`, `price`, `seller_id`, `quantity`, `created_at`, `update_at`)
+INSERT INTO `Fichier` (`id`, `Author_id`, `title`, `description`, `price`, `seller_id`, `quantity`, `created_at`, `update_at`)
 VALUES
 	(1,1,'Je suis un titre','Je suis une description',100,1,10,NULL,NULL),
 	(2,2,'Je suis un deuxieme titre','Je suis un deuxieme description',1234,1,10,NULL,NULL),
@@ -155,7 +155,7 @@ VALUES
 	(4,1,'azerg','sf',1,3,1,NULL,NULL),
 	(5,1,'egrfe','fgsdq',23,3,1,NULL,NULL);
 
-/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Fichier` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
