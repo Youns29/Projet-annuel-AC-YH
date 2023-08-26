@@ -39,7 +39,7 @@ class Facture
     private ?string $designation = null;
 
     #[ORM\ManyToOne(inversedBy: 'Factures')]
-    private ?User $author = null;
+    private ?User $customer = null;
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdAt = null;
@@ -145,14 +145,14 @@ class Facture
         return $this;
     }
 
-    public function getAuthor(): ?User
+    public function getCustomer(): ?User
     {
-        return $this->author;
+        return $this->customer;
     }
 
-    public function setAuthor(?User $author): self
+    public function setCustomer(?User $customer): self
     {
-        $this->author = $author;
+        $this->customer = $customer;
 
         return $this;
     }

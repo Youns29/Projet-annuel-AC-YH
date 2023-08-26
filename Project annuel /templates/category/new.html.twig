@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  New Author
+  New Customer
 {% endblock %}
 
 {% block body %}
   <h1>
-    Create new Author
+    Create new Customer
   </h1>
 
-  {{ include('Author/_form.html.twig') }}
+  {{ include('Customer/_form.html.twig') }}
 
-  <a href="{{ path('app_Author_index') }}">back to list</a>
+  <a href="{{ path('app_Customer_index') }}">back to list</a>
 {% endblock %}

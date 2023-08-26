@@ -1,24 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Edit Author
+  Edit Customer
 {% endblock %}
 
 {% block body %}
   <h1>
-    Edit Author
+    Edit Customer
   </h1>
 
   {{
     include(
-      'Author/_form.html.twig',
+      'Customer/_form.html.twig',
       {
         button_label: 'Update'
       }
     )
   }}
 
-  <a href="{{ path('app_Author_index') }}">back to list</a>
+  <a href="{{ path('app_Customer_index') }}">back to list</a>
 
-  {{ include('Author/_delete_form.html.twig') }}
+  {{ include('Customer/_delete_form.html.twig') }}
 {% endblock %}

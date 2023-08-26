@@ -18,6 +18,9 @@ class Category
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $totalspace = null;
+
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Fichier::class)]
     private Collection $Fichiers;
 
@@ -39,6 +42,18 @@ class Category
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getTotalSpace(): ?string
+    {
+        return $this->totalspace;
+    }
+
+    public function setTotalSpace(string $totalspace): self
+    {
+        $this->totalspace = $totalspace;
 
         return $this;
     }

@@ -13,7 +13,7 @@ class FilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('author', EntityType::class, [
+            ->add('customer', EntityType::class, [
                 'class' => User::class,
                 'choice_label' => 'lastname',
             ])

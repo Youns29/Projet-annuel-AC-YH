@@ -40,7 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $profilepicture = null;
 
-    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Facture::class)]
+    #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Facture::class)]
     private Collection $Factures;
 
     #[ORM\OneToMany(mappedBy: 'seller', targetEntity: Fichier::class)]
@@ -170,7 +170,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if (!$this->Factures->contains($Facture)) {
             $this->Factures->add($Facture);
-            $Facture->setAuthor($this);
+            $Facture->setCustomer($this);
         }
 
         return $this;
@@ -180,8 +180,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->Factures->removeElement($Facture)) {
             // set the owning side to null (unless already changed)
-            if ($Facture->getAuthor() === $this) {
-                $Facture->setAuthor(null);
+            if ($Facture->getCustomer() === $this) {
+                $Facture->setCustomer(null);
             }
         }
 

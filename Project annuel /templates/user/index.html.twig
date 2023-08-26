@@ -23,13 +23,13 @@
             {{ Facture.title }}
           </h2>
           <p>
-            {{ Facture.content }}
+            {{ Facture.designation }}
           </p>
-          {% if Facture.author %}
-            <p class="Facture_author">
-              Auteur: {{ Facture.author.lastname }} {{ Facture.author.firstname }}
+          {# {% if Facture.user %}
+            <p class="Facture_customer">
+              Auteur: {{ Facture.customer.lastname }} {{ Facture.customer.firstname }}
             </p>
-          {% endif %}
+          {% endif %} #}
           <div class="action_button_container">
             <a class="action_button"
               href="{{
@@ -73,7 +73,7 @@
             Price: {{ Fichier.price }} €
           </p>
           <p>
-            Author: {{ Fichier.Author.name }}
+            {# Customer: {{ Fichier.Customer.name }} #}
           </p>
           <p>
             seller : {{ Fichier.seller.lastname }} {{ Fichier.seller.firstname }}

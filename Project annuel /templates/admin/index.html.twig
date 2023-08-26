@@ -14,9 +14,9 @@
           <p>
             {{ Facture.content }}
           </p>
-          {% if Facture.author %}
-            <p class="Facture_author">
-              Auteur: {{ Facture.author.lastname }} {{ Facture.author.firstname }}
+          {% if Facture.customer %}
+            <p class="Facture_customer">
+              Auteur: {{ Facture.customer.lastname }} {{ Facture.customer.firstname }}
             </p>
           {% endif %}
         </section>
@@ -35,7 +35,7 @@
             Prix: {{ Fichier.price }} €
           </p>
           <p>
-            Catégorie: {{ Fichier.Author.name }}
+            Catégorie: {{ Fichier.customer.name }}
           </p>
           <p>
             Vendeur : {{ Fichier.seller.lastname }} {{ Fichier.seller.firstname }}

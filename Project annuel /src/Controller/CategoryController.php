@@ -75,4 +75,18 @@ class CategoryController extends AbstractController
 
         return $this->redirectToRoute('app_category_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    public function checkStorageSpace(): Response
+    {
+        $totalspace = disk_total_space('/');
+        $freeSpace = disk_free_space('/');
+
+        $totalSpaceGB = round($totalspace / (1024 * 1024 * 1024), 2);
+        $freeSpaceGB = round($freeSpace / (1024 * 1024 * 1024), 2);
+
+        return $this->render('category/index.html.twig', [
+            'totalspace' => $totalSpaceGB,
+            'freeSpace' => $freeSpaceGB,
+        ]);
+    }
 }

@@ -23,10 +23,10 @@
           </p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
-      </div>#{% if Facture.author %}
-        #<p class="Facture_author">
-          #Auteur: #{{ Facture.author.name }}
-          #{{ Facture.author.firstname }}
+      </div>#{% if Facture.customer %}
+        #<p class="Facture_customer">
+          #Auteur: #{{ Facture.customer.name }}
+          #{{ Facture.customer.firstname }}
           #
         </p>
       {% endif %}

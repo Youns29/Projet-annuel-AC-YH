@@ -42,14 +42,14 @@ class FactureRepository extends ServiceEntityRepository
     /**
      * @return Facture[] Returns an array of Facture objects
      */
-    public function findByCreatedDate(int $limit, int $author = null): array
+    public function findByCreatedDate(int $limit, int $customer = null): array
     {
         $qb = $this->createQueryBuilder('a');
 
-        if ($author) {
+        if ($customer) {
             $qb
-                ->andWhere('a.author = :author')
-                ->setParameter('author', $author);
+                ->andWhere('a.customer = :customer')
+                ->setParameter('customer', $customer);
         }
         $qb->orderBy('a.createdAt', 'DESC')->setMaxResults($limit);
 

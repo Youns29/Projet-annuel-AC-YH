@@ -42,7 +42,7 @@ class FichierRepository extends ServiceEntityRepository
     public function findByCreatedDate(
         int $limit,
         int $seller = null,
-        int $Author = null
+        int $customer = null
     ): array {
         $qb = $this->createQueryBuilder('p');
 
@@ -51,10 +51,10 @@ class FichierRepository extends ServiceEntityRepository
                 ->andWhere('p.seller = :seller')
                 ->setParameter('seller', $seller);
         }
-        if ($Author) {
+        if ($customer) {
             $qb
-                ->andWhere('p.Author = :Author')
-                ->setParameter('Author', $Author);
+                ->andWhere('p.Customer = :Customer')
+                ->setParameter('Customer', $Customer);
         }
         $qb->orderBy('p.createdAt', 'DESC')->setMaxResults($limit);
 

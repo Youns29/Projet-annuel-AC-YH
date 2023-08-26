@@ -27,7 +27,7 @@ class Fichier
     private ?category $category = null;
 
     #[ORM\ManyToOne(inversedBy: 'Fichiers')]
-    private ?User $author = null;
+    private ?User $customer = null;
 
     #[ORM\ManyToOne(inversedBy: 'Fichiers')]
     private ?User $seller = null;
@@ -94,14 +94,14 @@ class Fichier
         return $this;
     }
 
-    // public function getAuthor(): ?Author
+    // public function getCustomer(): ?customer
     // {
-    //     return $this->Author;
+    //     return $this->customer;
     // }
 
-    // public function setAuthor(?Author $Author): self
+    // public function setCustomer(?customer $customer): self
     // {
-    //     $this->Author = $Author;
+    //     $this->customer = $customer;
 
     //     return $this;
     // }

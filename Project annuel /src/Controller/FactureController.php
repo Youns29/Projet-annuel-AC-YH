@@ -34,7 +34,7 @@ class FactureController extends AbstractController
         $user = $this->getUser();
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $Facture->setAuthor($user);
+            $Facture->setCustomer($user);
             $Facture->setCreatedAt(new DateTimeImmutable('now'));
             $FactureRepository->save($Facture, true);
 

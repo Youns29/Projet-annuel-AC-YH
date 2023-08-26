@@ -32,10 +32,10 @@ class AdminController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $limit = $form->get('limit')->getData();
-            $author = $form->get('author')->getData();
-            $authorId = $author->getId();
+            $customer = $form->get('customer')->getData();
+            $customerId = $customer->getId();
 
-        return $this->redirectToRoute('app_admin_Factures', ["limit" => $limit, "author" => $authorId]);
+        return $this->redirectToRoute('app_admin_Factures', ["limit" => $limit, "customer" => $customerId]);
         }
         return $this->render('admin/index.html.twig', [
             'Factures' => $Factures,
@@ -44,9 +44,9 @@ class AdminController extends AbstractController
         ]);
 
     }
-    #[Route('/Factures/{limit}/{author}', name: 'app_admin_Factures')]
-    public function getFactures(FactureRepository $FactureRepository, $limit, $author) {
+    #[Route('/Factures/{limit}/{customer}', name: 'app_admin_Factures')]
+    public function getFactures(FactureRepository $FactureRepository, $limit, $customer) {
 
-        $filters = $FactureRepository->findByCreatedDate($limit, $author);
+        $filters = $FactureRepository->findByCreatedDate($limit, $customer);
     }
 }

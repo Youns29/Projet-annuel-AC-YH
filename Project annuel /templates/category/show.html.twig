@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-  Author
+  Customer
 {% endblock %}
 
 {% block body %}
   <h1>
-    Author
+    Customer
   </h1>
 
   <table class="table">
@@ -16,7 +16,7 @@
           Id
         </th>
         <td>
-          {{ Author.id }}
+          {{ Customer.id }}
         </td>
       </tr>
       <tr>
@@ -24,24 +24,24 @@
           Name
         </th>
         <td>
-          {{ Author.name }}
+          {{ Customer.name }}
         </td>
       </tr>
     </tbody>
   </table>
 
-  <a href="{{ path('app_Author_index') }}">back to list</a>
+  <a href="{{ path('app_Customer_index') }}">back to list</a>
 
   <a href="{{
     path(
-      'app_Author_edit',
+      'app_Customer_edit',
       {
-        id: Author.id
+        id: Customer.id
       }
     )
     }}">
     edit
   </a>
 
-  {{ include('Author/_delete_form.html.twig') }}
+  {{ include('Customer/_delete_form.html.twig') }}
 {% endblock %}

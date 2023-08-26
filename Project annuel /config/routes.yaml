@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+storage_space:
+    path: '/storage-space'
+    controller: App\Controller\CategoryController::checkStorageSpace'
